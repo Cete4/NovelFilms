@@ -30,7 +30,7 @@ input {
     width: 95%;
 }
 
-fieldset {
+#searchDiv {
     background-color: rgb(231, 230, 230);
 }
 
@@ -43,6 +43,20 @@ fieldset {
 #results {
     background-color: chocolate;
     flex: 1 0 auto;
+}
+
+#resultCard {
+    padding: 5px;
+    margin: 10px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+
+ul {
+    list-style: none;
+    list-style: none;
+    -webkit-padding-start: 0;
+    margin: 0px;
 }
 
 footer {
