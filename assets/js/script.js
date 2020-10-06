@@ -1,6 +1,8 @@
-// local storage - onclick #search element - last text entry saved to local storage item "searchTerm"
+// local storage - onclick #search button - last search valur for title and genre saved
 $("#search").click(function() {
     event.preventDefault()
-    var searchTerm = $("input").val();
-    localStorage.setItem("searchTerm", searchTerm);
+    var searchTitle = $(".searchTitle").val();
+    var searchGenre = $(".searchGenre").val();
+    localStorage.setItem("searchTitle", searchTitle);
+    localStorage.setItem("searchGenre", searchGenre);
 });
