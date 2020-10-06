@@ -21,17 +21,32 @@ header {
     color: gold;
 }
 
+#searchDiv {
+    background-color: rgb(202, 202, 202);
+    padding: 10px;
+    border-width: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#art {
+    border-radius: 10px;
+    background-color: gray;
+}
+
 .pure-control-group {
-    width: 100vw;
-    text-align: center;
+    width: 100%;
 }
 
 input {
-    width: 95%;
+    width: inherit;
 }
 
-#searchDiv {
-    background-color: rgb(231, 230, 230);
+button {
+    height: 100%;
+    width: 100%;
 }
 
 .container {
@@ -41,14 +56,15 @@ input {
 }
 
 #results {
-    background-color: chocolate;
+    background-color: whit;
     flex: 1 0 auto;
 }
 
 #resultCard {
-    padding: 5px;
+    padding: 10px;
     margin: 10px;
-    background-color: cornflowerblue;
+    background-color: black;
+    color: white;
     border-radius: 10px;
 }
 
@@ -57,11 +73,22 @@ ul {
     list-style: none;
     -webkit-padding-start: 0;
     margin: 0px;
+    margin-left: 10px;
 }
 
 footer {
     height: 100px;
     color: white;
-    background-color: black;
+    background-color: darkred;
     flex-shrink: 0;
+    border-top-style: solid;
+    border-color: black;
+    border-width: 2px;
+    padding: 10px;
+}
+
+footer div {
+    height: inherit;
+    background-color: black;
+    border-radius: 10px;
 }
