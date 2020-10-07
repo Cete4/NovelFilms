@@ -24,7 +24,9 @@ function runSearch(searchTitle, searchGenre) {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (response) {
+
+    }).then(function(response) {
+
 
 
         var art = "art";
@@ -34,7 +36,9 @@ function runSearch(searchTitle, searchGenre) {
         var genre = "Genre: ";
         var plot = "Plot: ";
 
-        art = response.Poster;
+
+        art = `<img src="${response.Poster}">`;
+
         releaseDate += response.Released;
         author += response.Writer;
         genre += response.Genre;
@@ -64,7 +68,9 @@ function runSearch(searchTitle, searchGenre) {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (response) {
+
+    }).then(function(response) {
+
         console.log(response);
 
 
@@ -75,7 +81,11 @@ function runSearch(searchTitle, searchGenre) {
         var genre = "Genre: ";
         var plot = "Plot: ";
 
+
+        art = `<img src="${response.Poster}">`;
+
         art = response.Poster;
+
         releaseDate += response.items[0].volumeInfo.publishedDate;
         author += response.items[0].volumeInfo.authors[0];
         genre += response.items[0].volumeInfo.catergories[0];
