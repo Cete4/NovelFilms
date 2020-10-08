@@ -12,6 +12,7 @@ window.onload = function() {
     runSearch(searchTitle);
 };
 
+
 // on click footer images
 $(document).on("click", ".footerImage", function() {
     var searchTitle = $(this).attr("alt");
@@ -25,11 +26,14 @@ $(document).on("click", ".mainArt", function() {
 });
 
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> 5abeac333d100eeac389719088d60ef532d77b42
 // appends result card, placeholder text assigned to result vars 
 function runSearch(searchTitle) {
 
@@ -120,7 +124,6 @@ function runSearch(searchTitle) {
             $("footer").append(`
                 <div class="pure-u-1-5"><img class="footerImage" alt="${response.items[i].volumeInfo.title}" src="${response.items[i].volumeInfo.imageLinks.thumbnail}"></div>
             `);
-
         }
     })
 }
