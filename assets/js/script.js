@@ -2,31 +2,26 @@
 $("#search").click(function() {
     event.preventDefault()
     var searchTitle = $(".searchTitle").val();
-    var searchGenre = $(".searchGenre").val();
     localStorage.setItem("searchTitle", searchTitle);
-    localStorage.setItem("searchGenre", searchGenre);
-    runSearch(searchTitle, searchGenre);
+    runSearch(searchTitle);
 });
 
 // on load run last search
 window.onload = function() {
     var searchTitle = localStorage.getItem("searchTitle");
-    var searchGenre = localStorage.getItem("searchGenre");
-    runSearch(searchTitle, searchGenre);
+    runSearch(searchTitle);
 };
 
-// on click footer image
+// on click footer images
 $(document).on("click", ".footerImage", function() {
-    var ID = $(this).attr("id");
-    var searchTitle =
-        localStorage.setItem("searchTitle", searchTitle);
-    runSearch(searchTitle);
-
+    var searchItem = $(this).attr("alt");
+    runSearch(searchItem);
 });
 
 
+
 // appends result card, placeholder text assigned to result vars 
-function runSearch(searchTitle, searchGenre) {
+function runSearch(searchTitle) {
 
     var queryURL = "https://www.omdbapi.com/?&apikey=9bc820d8&t=" + searchTitle;
 
@@ -113,11 +108,9 @@ function runSearch(searchTitle, searchGenre) {
         $("footer").empty();
         for (var i = 1; i < 6; i++) {
             $("footer").append(`
-                <div class="pure-u-1-5"><img class="footerImage" id="${i}" src="${response.items[i].volumeInfo.imageLinks.thumbnail}"></div>
+                <div class="pure-u-1-5"><img class="footerImage" alt="${response.items[i].volumeInfo.title}" src="${response.items[i].volumeInfo.imageLinks.thumbnail}"></div>
             `);
+
         }
-
-
     })
-
 }
