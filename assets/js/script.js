@@ -14,9 +14,19 @@ window.onload = function() {
 
 // on click footer images
 $(document).on("click", ".footerImage", function() {
-    var searchItem = $(this).attr("alt");
-    runSearch(searchItem);
+    var searchTitle = $(this).attr("alt");
+    runSearch(searchTitle);
 });
+
+// on click main images
+$(document).on("click", ".mainArt", function() {
+    query = $(this).attr("alt");
+    window.open("http://google.com/search?q=" + query);
+});
+
+
+
+
 
 
 
@@ -41,7 +51,7 @@ function runSearch(searchTitle) {
         var plot = "Plot: ";
 
 
-        art = `<img src="${response.Poster}">`;
+        art = `<img class="mainArt" alt="${response.Title}" src="${response.Poster}">`;
 
         releaseDate += response.Released;
         author += response.Writer;
@@ -84,7 +94,7 @@ function runSearch(searchTitle) {
         var genre = "Genre: ";
         var plot = "Plot: ";
 
-        art = `<img src="${response.items[0].volumeInfo.imageLinks.thumbnail}">`;
+        art = `<img class="mainArt" alt="${response.items[0].volumeInfo.title}" src="${response.items[0].volumeInfo.imageLinks.thumbnail}">`;
         releaseDate += response.items[0].volumeInfo.publishedDate;
         author += response.items[0].volumeInfo.authors[0];
         genre += response.items[0].volumeInfo.categories[0];
