@@ -18,10 +18,16 @@ $(document).on("click", ".footerImage", function() {
     runSearch(searchTitle);
 });
 
-// on click main images
-$(document).on("click", ".mainArt", function() {
+// on click movie images
+$(document).on("click", ".movieImg", function() {
     query = $(this).attr("alt");
-    window.open("http://google.com/search?q=" + query);
+    window.open("https://www.imdb.com/title/" + query);
+});
+
+// on click book images
+$(document).on("click", ".bookImg", function() {
+    query = $(this).attr("alt");
+    window.open("https://books.google.com/books/about/?id=" + query);
 });
 
 // appends result card, movie ajax
@@ -30,7 +36,7 @@ function runSearch(searchTitle) {
         url: "https://www.omdbapi.com/?&apikey=9bc820d8&t=" + searchTitle,
         method: "GET"
     }).then(function(response) {
-        var art = `<img class="mainArt" alt="${response.Title}" src="${response.Poster}">`,
+        var art = `<img class="movieImg" alt="${response.imdbID}" src="${response.Poster}">`,
             title = `<i class="fa fa-film"></i> ${response.Title}`,
             releaseDate = `Released ${response.Released}`,
             author = `Written by ${response.Writer}`,
@@ -60,7 +66,7 @@ function runSearch(searchTitle) {
         url: "https://www.googleapis.com/books/v1/volumes?q=" + searchTitle,
         method: "GET"
     }).then(function(response) {
-        var art = `<img class="mainArt" alt="${response.items[0].volumeInfo.title}" src="${response.items[0].volumeInfo.imageLinks.thumbnail}">`,
+        var art = `<img class="bookImg" alt="${response.items[0].id}" src="${response.items[0].volumeInfo.imageLinks.thumbnail}">`,
             title = `<i class="fa fa-book"></i> ${response.items[0].volumeInfo.title}`,
             releaseDate = `Released ${response.items[0].volumeInfo.publishedDate}`,
             author = `Written by ${response.items[0].volumeInfo.authors[0]}`,
