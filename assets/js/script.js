@@ -12,12 +12,12 @@ window.onload = function() {
     runSearch(searchTitle);
 };
 
+
 // on click footer images
 $(document).on("click", ".footerImage", function() {
     var searchItem = $(this).attr("alt");
     runSearch(searchItem);
 });
-
 
 
 // appends result card, placeholder text assigned to result vars 
@@ -110,7 +110,6 @@ function runSearch(searchTitle) {
             $("footer").append(`
                 <div class="pure-u-1-5"><img class="footerImage" alt="${response.items[i].volumeInfo.title}" src="${response.items[i].volumeInfo.imageLinks.thumbnail}"></div>
             `);
-
         }
     })
 }
