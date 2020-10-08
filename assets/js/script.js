@@ -24,7 +24,7 @@ $(document).on("click", ".mainArt", function() {
     window.open("http://google.com/search?q=" + query);
 });
 
-// appends result card, placeholder text assigned to result vars 
+// appends result card, movie ajax
 function runSearch(searchTitle) {
     $.ajax({
         url: "https://www.omdbapi.com/?&apikey=9bc820d8&t=" + searchTitle,
@@ -53,12 +53,9 @@ function runSearch(searchTitle) {
                 </div>
             `);
         }
-
-
-
-
     })
 
+    // appends results card, book ajax
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes?q=" + searchTitle,
         method: "GET"
@@ -69,7 +66,6 @@ function runSearch(searchTitle) {
             author = `Writen by ${response.items[0].volumeInfo.authors[0]}`,
             genre = `Genre: ${response.items[0].volumeInfo.categories[0]}`,
             plot = `Plot: ${response.items[0].volumeInfo.description}`;
-
         $("#results").prepend(`
                 <div id="resultCard" class="pure-g">
                     <div id="art" class="pure-u-1-5">${art}</div>
@@ -84,15 +80,13 @@ function runSearch(searchTitle) {
                     </div>
                 </div>
             `);
+
+        // appends footer
         $("footer").empty();
         for (var i = 1; i < 6; i++) {
             $("footer").append(`
                 <div class="pure-u-1-5"><img class="footerImage" alt="${response.items[i].volumeInfo.title}" src="${response.items[i].volumeInfo.imageLinks.thumbnail}"></div>
             `);
         }
-
-
-
-
     })
 }
