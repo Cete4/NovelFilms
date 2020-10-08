@@ -25,15 +25,6 @@ $(document).on("click", ".mainArt", function() {
     window.open("http://google.com/search?q=" + query);
 });
 
-
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 5abeac333d100eeac389719088d60ef532d77b42
 // appends result card, placeholder text assigned to result vars 
 function runSearch(searchTitle) {
 
@@ -127,3 +118,4 @@ function runSearch(searchTitle) {
         }
     })
 }
+
