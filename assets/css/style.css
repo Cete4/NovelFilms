@@ -33,19 +33,12 @@ header {
 
 #art img {
     width: 100%;
-}
-
-.pure-control-group {
-    width: fit-content;
+    max-width: 200px;
 }
 
 input {
     width: inherit;
-}
-
-button {
-    height: 100%;
-    width: 100%;
+    height: 28px;
 }
 
 .container {
@@ -55,11 +48,12 @@ button {
 }
 
 #results {
-    background-color: whit;
+    background-color: white;
     flex: 1 0 auto;
 }
 
 #resultCard {
+    max-width: 600px;
     padding: 10px;
     margin: 10px;
     background-color: black;
@@ -93,4 +87,5 @@ footer div {
 
 footer img {
     width: 90%;
+    max-width: 100px;
 }

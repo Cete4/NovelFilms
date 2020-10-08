@@ -30,7 +30,7 @@ function runSearch(searchTitle, searchGenre) {
 
 
         var art = "art";
-        var title = `Title: ${searchTitle}`;
+        var title = `<i class="fa fa-film"></i> ${response.Title}`;
         var releaseDate = "Release Date: ";
         var author = "Author: ";
         var genre = "Genre: ";
@@ -74,7 +74,7 @@ function runSearch(searchTitle, searchGenre) {
 
 
         var art = "art";
-        var title = `Title: ${searchTitle}`;
+        var title = `<i class="fa fa-book"></i> ${response.items[0].volumeInfo.title}`;
         var releaseDate = "Release Date: ";
         var author = "Author: ";
         var genre = "Genre: ";
