@@ -15,6 +15,15 @@ window.onload = function() {
     runSearch(searchTitle, searchGenre);
 };
 
+// on click footer image
+$(document).on("click", ".footerImage", function() {
+    var ID = $(this).attr("id");
+    var searchTitle =
+        localStorage.setItem("searchTitle", searchTitle);
+    runSearch(searchTitle);
+
+});
+
 
 // appends result card, placeholder text assigned to result vars 
 function runSearch(searchTitle, searchGenre) {
@@ -101,13 +110,13 @@ function runSearch(searchTitle, searchGenre) {
             </div>
         `);
 
-        $("footer").append(`
-            <div class="pure-u-1-5"><img src="${response.items[1].volumeInfo.imageLinks.thumbnail}"></div>
-            <div class="pure-u-1-5"><img src="${response.items[2].volumeInfo.imageLinks.thumbnail}"></div>
-            <div class="pure-u-1-5"><img src="${response.items[3].volumeInfo.imageLinks.thumbnail}"></div>
-            <div class="pure-u-1-5"><img src="${response.items[4].volumeInfo.imageLinks.thumbnail}"></div>
-            <div class="pure-u-1-5"><img src="${response.items[5].volumeInfo.imageLinks.thumbnail}"></div>
-        `);
+        $("footer").empty();
+        for (var i = 1; i < 6; i++) {
+            $("footer").append(`
+                <div class="pure-u-1-5"><img class="footerImage" id="${i}" src="${response.items[i].volumeInfo.imageLinks.thumbnail}"></div>
+            `);
+        }
+
 
     })
 
