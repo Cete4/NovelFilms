@@ -1,5 +1,5 @@
 // local storage - onclick #search button - last search value for title and genre saved
-$("#search").click(function () {
+$("#search").click(function() {
     event.preventDefault()
     var searchTitle = $(".searchTitle").val();
     var searchGenre = $(".searchGenre").val();
@@ -9,7 +9,7 @@ $("#search").click(function () {
 });
 
 // on load run last search
-window.onload = function () {
+window.onload = function() {
     var searchTitle = localStorage.getItem("searchTitle");
     var searchGenre = localStorage.getItem("searchGenre");
     runSearch(searchTitle, searchGenre);
@@ -19,7 +19,7 @@ window.onload = function () {
 // appends result card, placeholder text assigned to result vars 
 function runSearch(searchTitle, searchGenre) {
 
-    var queryURL = "http://www.omdbapi.com/?&apikey=9bc820d8&t=" + searchTitle;
+    var queryURL = "https://www.omdbapi.com/?&apikey=9bc820d8&t=" + searchTitle;
 
     $.ajax({
         url: queryURL,
@@ -71,10 +71,6 @@ function runSearch(searchTitle, searchGenre) {
 
     }).then(function(response) {
 
-<<<<<<< HEAD
-=======
-        console.log(response);
->>>>>>> bf385439aefd4e2478a397126135cf5a63c06a16
 
 
         var art = "art";
@@ -84,15 +80,7 @@ function runSearch(searchTitle, searchGenre) {
         var genre = "Genre: ";
         var plot = "Plot: ";
 
-<<<<<<< HEAD
         art = `<img src="${response.items[0].volumeInfo.imageLinks.thumbnail}">`;
-=======
-
-        art = `<img src="${response.Poster}">`;
-
-        art = response.Poster;
-
->>>>>>> bf385439aefd4e2478a397126135cf5a63c06a16
         releaseDate += response.items[0].volumeInfo.publishedDate;
         author += response.items[0].volumeInfo.authors[0];
         genre += response.items[0].volumeInfo.categories[0];
