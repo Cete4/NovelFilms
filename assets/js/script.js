@@ -24,6 +24,7 @@ $(document).on("click", ".movieImg", function() {
     window.open("https://www.imdb.com/title/" + query);
 });
 
+
 // on click book images
 $(document).on("click", ".bookImg", function() {
     query = $(this).attr("alt");
@@ -31,6 +32,7 @@ $(document).on("click", ".bookImg", function() {
 });
 
 // appends result card, movie ajax
+
 function runSearch(searchTitle) {
     $.ajax({
         url: "https://www.omdbapi.com/?&apikey=9bc820d8&t=" + searchTitle,
@@ -96,3 +98,4 @@ function runSearch(searchTitle) {
         }
     })
 }
+
