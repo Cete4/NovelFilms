@@ -65,7 +65,7 @@ function runSearch(searchTitle, searchGenre) {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+
 
 
         var art = "art";
@@ -75,28 +75,34 @@ function runSearch(searchTitle, searchGenre) {
         var genre = "Genre: ";
         var plot = "Plot: ";
 
-        art = `<img src="${response.Poster}">`;
+        art = `<img src="${response.items[0].volumeInfo.imageLinks.thumbnail}">`;
         releaseDate += response.items[0].volumeInfo.publishedDate;
         author += response.items[0].volumeInfo.authors[0];
-        genre += response.items[0].volumeInfo.catergories[0];
+        genre += response.items[0].volumeInfo.categories[0];
         plot += response.items[0].volumeInfo.description;
-        console.log(releaseDate);
-
 
         $("#results").prepend(`
-        <div id="resultCard" class="pure-g">
-            <div id="art" class="pure-u-1-5">${art}</div>
-            <div id="info" class="pure-u-4-5">
-            <ul>
-                <li id="title">${title}</li>
-                <li id="releaseDate">${releaseDate}</li>
-                <li id="author">${author}</li>
-                <li id="genre">${genre}</li>
-                <li id="plot">${plot}</li>
-            </ul>
+            <div id="resultCard" class="pure-g">
+                <div id="art" class="pure-u-1-5">${art}</div>
+                <div id="info" class="pure-u-4-5">
+                <ul>
+                    <li id="title">${title}</li>
+                    <li id="releaseDate">${releaseDate}</li>
+                    <li id="author">${author}</li>
+                    <li id="genre">${genre}</li>
+                    <li id="plot">${plot}</li>
+                </ul>
+                </div>
             </div>
-        </div>
-    `);
+        `);
+
+        $("footer").append(`
+            <div class="pure-u-1-5"><img src="${response.items[1].volumeInfo.imageLinks.thumbnail}"></div>
+            <div class="pure-u-1-5"><img src="${response.items[2].volumeInfo.imageLinks.thumbnail}"></div>
+            <div class="pure-u-1-5"><img src="${response.items[3].volumeInfo.imageLinks.thumbnail}"></div>
+            <div class="pure-u-1-5"><img src="${response.items[4].volumeInfo.imageLinks.thumbnail}"></div>
+            <div class="pure-u-1-5"><img src="${response.items[5].volumeInfo.imageLinks.thumbnail}"></div>
+        `);
 
     })
 

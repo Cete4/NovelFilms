@@ -31,13 +31,12 @@ header {
     border-bottom-right-radius: 10px;
 }
 
-#art {
-    border-radius: 10px;
-    background-color: gray;
+#art img {
+    width: 100%;
 }
 
 .pure-control-group {
-    width: 100%;
+    width: fit-content;
 }
 
 input {
@@ -77,18 +76,21 @@ ul {
 }
 
 footer {
-    height: 100px;
+    height: fit-content;
     color: white;
-    background-color: darkred;
+    background-color: black;
     flex-shrink: 0;
     border-top-style: solid;
-    border-color: black;
+    border-color: darkred;
     border-width: 2px;
     padding: 10px;
 }
 
 footer div {
     height: inherit;
-    background-color: black;
-    border-radius: 10px;
+    text-align: center;
+}
+
+footer img {
+    width: 90%;
 }
