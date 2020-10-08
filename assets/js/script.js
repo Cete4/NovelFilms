@@ -33,7 +33,7 @@ function runSearch(searchTitle) {
         var art = `<img class="mainArt" alt="${response.Title}" src="${response.Poster}">`,
             title = `<i class="fa fa-film"></i> ${response.Title}`,
             releaseDate = `Released ${response.Released}`,
-            author = `Writen by ${response.Writer}`,
+            author = `Written by ${response.Writer}`,
             genre = `Genre: ${response.Genre}`,
             plot = `Plot: ${response.Plot}`;
 
@@ -63,7 +63,7 @@ function runSearch(searchTitle) {
         var art = `<img class="mainArt" alt="${response.items[0].volumeInfo.title}" src="${response.items[0].volumeInfo.imageLinks.thumbnail}">`,
             title = `<i class="fa fa-book"></i> ${response.items[0].volumeInfo.title}`,
             releaseDate = `Released ${response.items[0].volumeInfo.publishedDate}`,
-            author = `Writen by ${response.items[0].volumeInfo.authors[0]}`,
+            author = `Written by ${response.items[0].volumeInfo.authors[0]}`,
             genre = `Genre: ${response.items[0].volumeInfo.categories[0]}`,
             plot = `Plot: ${response.items[0].volumeInfo.description}`;
         $("#results").prepend(`
