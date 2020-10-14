@@ -1,4 +1,8 @@
 # NovelFilms Project
+
+## Table of Contents 
+[Description](#Description)
+
 ## Description
 The purpose of this project is to create a mobile-first dashboard application that pulls from multiple APIs to display books and a related movie based on user search input. 
 <!-- more thoughts on purpose here -->
